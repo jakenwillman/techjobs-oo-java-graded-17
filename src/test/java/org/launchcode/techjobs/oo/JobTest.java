@@ -1,5 +1,7 @@
 package org.launchcode.techjobs.oo;
 import org.junit.Test;
+
+import static java.lang.System.lineSeparator;
 import static org.testng.Assert.assertNotEquals;
 import static org.testng.AssertJUnit.*;
 
@@ -43,4 +45,52 @@ public class JobTest {
         // use assertFalse to check that the equals method returns false because the Jobs IDs are different
         assertFalse(job1.equals(job2));
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        // Pass a new Job object
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        // Get the string output of the Job object
+        String jobString = job.toString();
+
+        // Using assertEquals, check that a passed Job object returns a string that contains a blank lineSeparator before and after the job information
+        assertTrue(jobString.startsWith(lineSeparator()));
+        assertTrue(jobString.endsWith(lineSeparator()));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        // Pass a new Job object
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        // Get the string output of the Job object
+        String jobString = job.toString();
+
+        // Using assertTrue check if the string contains all the of labels and data for each field
+        assertTrue(jobString.contains("ID:"));
+        assertTrue(jobString.contains("Name: Product tester"));
+        assertTrue(jobString.contains("Employer: ACME"));
+        assertTrue(jobString.contains("Location: Desert"));
+        assertTrue(jobString.contains("Position Type: Quality control"));
+        assertTrue(jobString.contains("Core Competency: Persistence"));
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        // Pass a new Job object with empty fields
+        Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+        // Get the string output of the Job object
+        String jobString = job.toString();
+
+        // Check if the string contains "Data not available" for empty fields
+        assertTrue(jobString.contains("Name: Data not available"));
+        assertTrue(jobString.contains("Employer: Data not available"));
+        assertTrue(jobString.contains("Location: Data not available"));
+        assertTrue(jobString.contains("Position Type: Data not available"));
+        assertFalse(jobString.contains("ID: Data not available")); // ID should never be empty
+        assertTrue(jobString.contains("Core Competency: Data not available"));
+    }
 }
+

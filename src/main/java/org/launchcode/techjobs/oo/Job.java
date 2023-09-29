@@ -4,6 +4,8 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.util.Objects;
 
+import static java.lang.System.lineSeparator;
+
 public class Job {
 
     private int id;
@@ -50,6 +52,19 @@ public class Job {
         return Objects.hash(id);
     }
 
+    // Create a toString method that generates a lineSeparator before and after the job information to pass the test
+    // Modified the toString method to make the testToStringContainsCorrectLabelsAndData test pass
+    // The String should contain a label for each field followed by the corresponding data stored in it. Each on their own line.
+    public String toString() {
+        return lineSeparator() +
+                "ID: " + id + lineSeparator() +
+                "Name: " + (name.isEmpty() ? "Data not available" : name) + lineSeparator() +
+                "Employer: " + (employer.getValue().isEmpty() ? "Data not available" : employer) + lineSeparator() +
+                "Location: " + (location.getValue().isEmpty() ? "Data not available" : location) + lineSeparator() +
+                "Position Type: " + (positionType.getValue().isEmpty() ? "Data not available" : positionType) + lineSeparator() +
+                "Core Competency: " + (coreCompetency.getValue().isEmpty() ? "Data not available" : coreCompetency) +
+                lineSeparator();
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
