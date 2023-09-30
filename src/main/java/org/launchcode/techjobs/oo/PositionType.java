@@ -2,6 +2,9 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+
+// Modify to extend the JobField class
+// remove any and all redundant code that matches what's now contained within the new base class JobField
 public class PositionType extends JobField {
 
 //    private int id;
@@ -13,6 +16,12 @@ public class PositionType extends JobField {
 //        nextId++;
 //    }
 
+//    public PositionType(String value) {
+//        this();
+//        this.value = value;
+//    }
+
+    // Replace the original constructors using super and passing in the (value)
     public PositionType(String value) {
         super(value);
     }

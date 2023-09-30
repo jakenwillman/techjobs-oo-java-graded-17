@@ -9,7 +9,7 @@ public abstract class JobField {
     private static int nextId = 1;
     private String value;
 
-    // Code the common repeated constructors
+    // Code the repeated constructors
     // 1st constructor
     public JobField() {
         id = nextId;

@@ -26,7 +26,7 @@ public class Job {
         id = nextId;
         nextId++;
     }
-    // Second constructor to initialize all fields and call the first constructor to set the id
+    // Second constructor takes 5 parameters and assigns values to all the fields.
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this(); // Call to the first constructor to set the id
         this.name = name;
@@ -55,6 +55,7 @@ public class Job {
     // Create a toString method that generates a lineSeparator before and after the job information to pass the test
     // Modified the toString method to make the testToStringContainsCorrectLabelsAndData test pass
     // The String should contain a label for each field followed by the corresponding data stored in it. Each on their own line.
+    // Using a ternary conditional check if the fields are missing data. If true print "Data not available" to pass testToStringHandlesEmptyField
     public String toString() {
         return lineSeparator() +
                 "ID: " + id + lineSeparator() +

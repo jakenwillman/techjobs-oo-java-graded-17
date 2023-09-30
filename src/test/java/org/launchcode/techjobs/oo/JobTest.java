@@ -55,6 +55,7 @@ public class JobTest {
         String jobString = job.toString();
 
         // Using assertEquals, check that a passed Job object returns a string that contains a blank lineSeparator before and after the job information
+        // Modify toString() in Job.java to get this test to pass
         assertTrue(jobString.startsWith(lineSeparator()));
         assertTrue(jobString.endsWith(lineSeparator()));
     }
@@ -67,7 +68,8 @@ public class JobTest {
         // Get the string output of the Job object
         String jobString = job.toString();
 
-        // Using assertTrue check if the string contains all the of labels and data for each field
+        // Using assertTrue check if the string contains all the of labels and data for each field. Each field should be printed separately on different lines.
+        // Modify toString() in Job.java to get this test to pass
         assertTrue(jobString.contains("ID:"));
         assertTrue(jobString.contains("Name: Product tester"));
         assertTrue(jobString.contains("Employer: ACME"));
@@ -85,6 +87,7 @@ public class JobTest {
         String jobString = job.toString();
 
         // Check if the string contains "Data not available" for empty fields
+        // Modify toString() in Job.java to get this test to pass
         assertTrue(jobString.contains("Name: Data not available"));
         assertTrue(jobString.contains("Employer: Data not available"));
         assertTrue(jobString.contains("Location: Data not available"));
