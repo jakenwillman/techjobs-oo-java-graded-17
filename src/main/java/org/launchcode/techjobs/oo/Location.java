@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+// Modify to extend the JobField class
+// remove any and all redundant code that matches what's now contained within the new base class JobField
 public class Location extends JobField {
 
 //    private int id;
@@ -17,7 +19,7 @@ public class Location extends JobField {
     //  constructor should also call the empty constructor in order to initialize the 'id' field.
 
 //    public Location(String value) {
-//        this();
+//        this(); // call to the empty constructor to initialize the id field
 //        this.value = value;
 //    }
 
